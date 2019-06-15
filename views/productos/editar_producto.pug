@@ -1,0 +1,30 @@
+extends ../layouts/base_admin
+
+block content
+
+    div(class='card card-primary contenedor')
+      div(class='card-header bg-primary') Editando al producto #{producto.nombre}
+      div(class='card-body')
+        div(class='card-block')
+          form(method='POST', action='/administracion/productos/'+producto.id+'/editar')
+            input(type='hidden',name='id',value=producto.id)
+            .form-group
+              label Nombre :
+              input.form-control(name='nombre', type='text', value=producto.nombre)
+            .form-group
+              label Descripción:
+              input.form-control(name='descripcion', type='text', value=producto.descripcion)
+            .form-group
+              label Precio :
+              input.form-control(name='precio', type='text', value=producto.precio)
+            .form-group
+              label Proveedor:
+              select.form-control(name='proveedor')
+                each proveedor_item in proveedores
+                  if producto.proveedor == proveedor_item.nombre
+                    option(value=proveedor_item.nombre, selected='selected') #{proveedor_item.nombre}
+                  else
+                    option(value=proveedor_item.nombre) #{proveedor_item.nombre}
+            div(class='text-center')
+              p(class='lead')
+                input.btn.btn-primary(type='submit',class='boton-largo',value='Guardar')

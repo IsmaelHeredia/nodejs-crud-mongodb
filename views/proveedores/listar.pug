@@ -1,0 +1,31 @@
+extends ../layouts/base_admin
+
+block content
+
+    h1(class='text-center') Listado de proveedores
+
+    div(class='espacio')
+
+    if proveedores
+        table(class='table')
+            thead  
+                th(scope='col') Nombre
+                th(scope='col') Dirección
+                th(scope='col') Teléfono
+                th(scope='col') Fecha registro
+                th(scope='col') Opción
+            tbody
+                each proveedor in proveedores
+                    tr
+                        td #{proveedor.nombre}
+                        td #{proveedor.direccion}
+                        td #{proveedor.telefono}
+                        td #{proveedor.fecha_registro}
+                        td
+                            a(class='btn btn-info btn-xs',href='/administracion/proveedores/'+proveedor.id+'/editar') Editar
+                            a(class='btn btn-danger btn-xs',href='/administracion/proveedores/'+proveedor.id+'/borrar') Borrar
+    else
+        h1 No hay registros !!
+
+    div(class='col text-center')
+        a(href='/administracion/proveedores/agregar',class='btn btn-primary') Agregar nuevo proveedor

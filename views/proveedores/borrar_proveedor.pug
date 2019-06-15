@@ -1,0 +1,13 @@
+extends ../layouts/base_admin
+
+block content
+	div(class='jumbotron')
+		form(method='POST', action='/administracion/proveedores/'+proveedor.id+'/borrar')
+			fieldset
+				input(type='hidden',name='id',value=proveedor.id)
+				div(class='text-center')
+					h1(class='display-3') Eliminacíon
+					p(class='lead') ¿Estás seguro que deseas eliminar al proveedor #{proveedor.nombre} ?
+					p(class='lead')
+						button(name='borrar_proveedor',class='btn btn-danger boton-largo') Borrar
+						a(href='/administracion/proveedores',class='btn btn-info boton-largo') Atrás

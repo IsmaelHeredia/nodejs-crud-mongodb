@@ -1,0 +1,34 @@
+extends ../layouts/base_admin
+
+block content
+
+    h1(class='text-center') Listado de productos
+
+    div(class='espacio')
+
+    if productos
+        table(class='table')
+            thead  
+                th(scope='col') Nombre
+                th(scope='col') Descripción
+                th(scope='col') Precio
+                th(scope='col') Proveedor
+                th(scope='col') Fecha registro
+                th(scope='col') Opción
+            tbody
+                each producto in productos
+                    tr
+                        td #{producto.nombre}
+                        td #{producto.descripcion}
+                        td $#{producto.precio}
+                        td #{producto.proveedor}
+                        td #{producto.fecha_registro}
+                        td
+                            a(class='btn btn-info btn-xs',href='/administracion/productos/'+producto.id+'/editar') Editar
+                            a(class='btn btn-danger btn-xs',href='/administracion/productos/'+producto.id+'/borrar') Borrar
+    else
+        h1 No hay registros !!
+
+
+    div(class='col text-center')
+        a(href='/administracion/productos/agregar',class='btn btn-primary') Agregar nuevo producto

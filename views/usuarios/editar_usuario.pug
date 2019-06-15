@@ -1,0 +1,18 @@
+extends ../layouts/base_admin
+
+block content
+
+    div(class='card card-primary contenedor')
+      div(class='card-header bg-primary') Editando al usuario #{usuario.nombre}
+      div(class='card-body')
+        div(class='card-block')
+          form(method='POST', action='/administracion/usuarios/'+usuario.id+'/editar')
+            input(type='hidden',name='id',value=usuario.id)
+            .form-group
+              label Tipo:
+              select.form-control(name='tipo')
+                option(value='1') Administrador
+                option(value='0') Usuario
+            div(class='text-center')
+              p(class='lead')
+                input.btn.btn-primary(type='submit',class='boton-largo',value='Guardar')

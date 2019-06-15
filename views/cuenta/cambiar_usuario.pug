@@ -1,0 +1,15 @@
+extends ../layouts/base_admin
+
+block content
+
+    div(class='card card-primary contenedor')
+      div(class='card-header bg-primary') Actualizar cuenta
+      div(class='card-body')
+        div(class='card-block')
+          form(method='POST', action='/administracion/cuenta/'+usuario.id+'/cambiarusuario')
+            .form-group
+              label Nombre :
+              input.form-control(name='nombre', type='text', value=usuario.nombre)
+            div(class='text-center')
+              p(class='lead')
+                input.btn.btn-primary(type='submit',class='boton-largo',value='Guardar')

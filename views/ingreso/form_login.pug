@@ -1,0 +1,18 @@
+extends ../layouts/base
+
+block content
+
+    div(class='card card-primary ingreso')
+      div(class='card-header bg-primary') Ingreso
+      div(class='card-body')
+        div(class='card-block')
+          form(method='POST', action='/ingreso')
+            .form-group
+              label Usuario:
+              input.form-control(name='usuario', type='text')
+            .form-group
+              label Clave:
+              input.form-control(name='clave', type='password')
+            div(class='text-center')
+              p(class='lead')
+                input.btn.btn-primary(type='submit',class='boton-largo',value='Ingresar')

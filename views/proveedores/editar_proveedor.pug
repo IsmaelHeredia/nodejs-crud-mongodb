@@ -1,0 +1,22 @@
+extends ../layouts/base_admin
+
+block content
+
+    div(class='card card-primary contenedor')
+      div(class='card-header bg-primary') Editando al proveedor #{proveedor.nombre}
+      div(class='card-body')
+        div(class='card-block')
+          form(method='POST', action='/administracion/proveedores/'+proveedor.id+'/editar')
+            input(type='hidden',name='id',value=proveedor.id)
+            .form-group
+              label Nombre :
+              input.form-control(name='nombre', type='text', value=proveedor.nombre)
+            .form-group
+              label Dirección :
+              input.form-control(name='direccion', type='text', value=proveedor.direccion)
+            .form-group
+              label Teléfono :
+              input.form-control(name='telefono', type='text', value=proveedor.telefono)
+            div(class='text-center')
+              p(class='lead')
+                input.btn.btn-primary(type='submit',class='boton-largo',value='Guardar')

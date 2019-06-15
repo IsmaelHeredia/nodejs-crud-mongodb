@@ -1,0 +1,32 @@
+extends ../layouts/base_admin
+
+block content
+
+    h1(class='text-center') Listado de usuarios
+
+    div(class='espacio')
+
+    if usuarios
+        table(class='table')
+            thead  
+                th(scope='col') Nombre
+                th(scope='col') Tipo
+                th(scope='col') Fecha registro
+                th(scope='col') Opción
+            tbody
+                each usuario in usuarios
+                    tr
+                        td #{usuario.nombre}
+                        if usuario.tipo == 1
+                            td Administrador
+                        else
+                            td Usuario
+                        td #{usuario.fecha_registro}
+                        td
+                            a(class='btn btn-info btn-xs',href='/administracion/usuarios/'+usuario.id+'/editar') Editar
+                            a(class='btn btn-danger btn-xs',href='/administracion/usuarios/'+usuario.id+'/borrar') Borrar
+    else
+        h1 No hay registros !!
+
+    div(class='col text-center')
+        a(href='/administracion/usuarios/agregar',class='btn btn-primary') Agregar nuevo usuario

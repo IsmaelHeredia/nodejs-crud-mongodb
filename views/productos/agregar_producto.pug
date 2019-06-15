@@ -1,0 +1,26 @@
+extends ../layouts/base_admin
+
+block content
+
+    div(class='card card-primary contenedor')
+      div(class='card-header bg-primary') Agregar producto
+      div(class='card-body')
+        div(class='card-block')
+          form(method='POST', action='/administracion/productos/agregar')
+            .form-group
+              label Nombre :
+              input.form-control(name='nombre', type='text')
+            .form-group
+              label Descripción:
+              input.form-control(name='descripcion', type='text')
+            .form-group
+              label Precio :
+              input.form-control(name='precio', type='text')
+            .form-group
+              label Proveedor:
+              select.form-control(name='proveedor')
+                each proveedor in proveedores
+                  option(value=proveedor.nombre) #{proveedor.nombre}
+            div(class='text-center')
+              p(class='lead')
+                input.btn.btn-primary(type='submit',class='boton-largo',value='Guardar')

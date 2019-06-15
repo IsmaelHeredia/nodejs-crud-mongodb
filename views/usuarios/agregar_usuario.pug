@@ -1,0 +1,23 @@
+extends ../layouts/base_admin
+
+block content
+
+    div(class='card card-primary contenedor')
+      div(class='card-header bg-primary') Agregar usuario
+      div(class='card-body')
+        div(class='card-block')
+          form(method='POST', action='/administracion/usuarios/agregar')
+            .form-group
+              label Nombre :
+              input.form-control(name='nombre', type='text')
+            .form-group
+              label Clave:
+              input.form-control(name='clave', type='password')
+            .form-group
+              label Tipo:
+              select.form-control(name='tipo')
+                option(value='1') Administrador
+                option(value='0') Usuario
+            div(class='text-center')
+              p(class='lead')
+                input.btn.btn-primary(type='submit',class='boton-largo',value='Guardar')

@@ -1,0 +1,21 @@
+extends ../layouts/base_admin
+
+block content
+
+    div(class='card card-primary contenedor')
+      div(class='card-header bg-primary') Agregar proveedor
+      div(class='card-body')
+        div(class='card-block')
+          form(method='POST', action='/administracion/proveedores/agregar')
+            .form-group
+              label Nombre :
+              input.form-control(name='nombre', type='text')
+            .form-group
+              label Dirección :
+              input.form-control(name='direccion', type='text')
+            .form-group
+              label Teléfono :
+              input.form-control(name='telefono', type='text')
+            div(class='text-center')
+              p(class='lead')
+                input.btn.btn-primary(type='submit',class='boton-largo',value='Guardar')
