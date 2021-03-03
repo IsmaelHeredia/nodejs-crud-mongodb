@@ -16,7 +16,7 @@
     "mongoose": "^5.4.8",
     "mongoose-unique-validator": "^2.0.2",
     "nodejs-base64": "^1.0.3",
-    "pug": "^2.0.3",
+    "pug": "^3.0.1",
     "stringify-object": "^3.3.0"
   }
 }
